@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const recipeSchema = new mongoose.Schema({
     title:  [{
         type: String,
-        required: [true,'Veuillez entrer un titre de recette ! ']
+        required: [true,'Veuillez entrer un titre de recette !']
     }],
     ingredients: [{
         type: String,
-        required: [true, 'Veuillez entrer des ingrédients ! '],
+        required: [true, 'Veuillez entrer des ingrédients !'],
     }],
     instructs: [{
         type: String,
@@ -16,7 +16,7 @@ const recipeSchema = new mongoose.Schema({
     }],
     timecook: [{
         type: Number,
-        required: [true, ' Veuillez entrer un temps de préparation ! '],
+        required: [true, ' Veuillez entrer un temps de préparation !'],
     }],
     timefiring: [{
         type: Number,
@@ -31,3 +31,8 @@ const recipeSchema = new mongoose.Schema({
         required: [true, 'Veuillez entrez un catégorie de recette !'],
     }],
 })
+
+
+const Recipe = mongoose.model('recipes', recipeSchema)
+
+module.exports = Recipe
