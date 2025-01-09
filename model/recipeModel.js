@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 
 const recipeSchema = new mongoose.Schema({
-    title:  [{
+    title:  {
         type: String,
         required: [true,'Veuillez entrer un titre de recette !']
-    }],
+    },
     ingredients: [{
         type: String,
         required: [true, 'Veuillez entrer des ingrédients !'],
@@ -14,22 +14,22 @@ const recipeSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Veuillez entrez des instructions de préparations !'],
     }],
-    timecook: [{
+    timecook: {
         type: Number,
         required: [true, ' Veuillez entrer un temps de préparation !'],
-    }],
+    },
     timefiring: [{
         type: Number,
         required: [true, ' Veuillez entrer un temps de cuisson ! '],
     }],
-    difficulty: [{
+    difficulty: {
         type: String,
         required: [true, 'Veuillez entrez un niveau difficultés !'],
-    }],
-    category: [{
+    },
+    category: {
         type: String,
         required: [true, 'Veuillez entrez un catégorie de recette !'],
-    }],
+    },
 })
 
 

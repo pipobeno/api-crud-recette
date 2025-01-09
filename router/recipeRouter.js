@@ -3,7 +3,17 @@ const Recipe = require('../model/recipeModel');
 
 recipeRouter.get("/recipes", async (req, res)=> {
     try {
-        let recipes = await Book.find()
+        let recipes = await Recipe.find()
+        res.send(recipes)
+
+    } catch (error) {
+        res.send(error.message)
+    }
+})
+
+recipeRouter.get("/recipes/:id", async (req, res)=> {
+    try {
+        let recipes = await Recipe.find()
         res.send(recipes)
 
     } catch (error) {
@@ -14,11 +24,11 @@ recipeRouter.get("/recipes", async (req, res)=> {
 recipeRouter.post("/recipes", async (req, res)=> {
     try {
         let newRecipe = new Recipe(req.body)
-        newRecipe.save()
-        res.send("élément ajouté avec succès")
+       await newRecipe.save()
+        res.json("élément ajouté avec succès")
 
     } catch (error) {
-        res.send(error.message)
+        res.json(error.message)
     }
 })
 
