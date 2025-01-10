@@ -34,7 +34,7 @@ recipeRouter.post("/recipes", async (req, res)=> {
 
 recipeRouter.put("/recipes/:id", async (req, res)=> {
     try {
-        await Recipe.updateOne({_id: req.params.id},req.body)
+        await Recipe.updateOne({_id: req.params.id},req.body, {runValidators})
         res.send("élément Modifié avec succès")
 
     } catch (error) {
@@ -43,7 +43,7 @@ recipeRouter.put("/recipes/:id", async (req, res)=> {
 })
 
 
-recipeRouter.delete("/recipes/:id", async (req, res)=> {
+recipeRouter.delete("/recipes/", async (req, res)=> {
     try {
         await Recipe.deleteOne({_id: req.params.id})
         res.send("livre supprimé avec succès")
